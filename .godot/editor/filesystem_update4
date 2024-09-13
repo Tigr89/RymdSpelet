@@ -1,2 +1,5 @@
-res://CharacterBody2D.gd
 res://character_body_2d.tscn
+res://CharacterBody2D.gd
+res://Area2D.gd
+res://level.tscn
+res://laser_green.tscn
