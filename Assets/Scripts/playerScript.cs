@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerScript : MonoBehaviour
@@ -8,6 +9,8 @@ public class playerScript : MonoBehaviour
     public int playerHealth;
     public int playerLives;
     public GameObject laserBullet;
+    private float _nextShot = 15f;
+    [SerializeField] private float _fireDelay = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +32,10 @@ public class playerScript : MonoBehaviour
 
         transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime );
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && Time.time > _nextShot)
         {
             Instantiate(laserBullet, transform.position, Quaternion.identity);
+            _nextShot = Time.time + _fireDelay;
         }
 
 
