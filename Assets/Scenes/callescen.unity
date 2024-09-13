@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementspeed: 10
-  playerhealth: 0
+  playerhealth: 10
 --- !u!1 &1237978894
 GameObject:
   m_ObjectHideFlags: 0
