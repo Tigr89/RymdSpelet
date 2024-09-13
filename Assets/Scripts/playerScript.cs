@@ -9,7 +9,7 @@ public class playerScript : MonoBehaviour
     public int playerHealth;
     public int playerLives;
     public GameObject laserBullet;
-    private float _nextShot = 15f;
+    private float _nextShot = 0f;
     [SerializeField] private float _fireDelay = 0.5f;
 
     // Start is called before the first frame update

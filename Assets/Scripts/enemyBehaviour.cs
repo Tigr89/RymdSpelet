@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class laserBehaviour : MonoBehaviour
+public class enemyBehaviour : MonoBehaviour
 {
-    public float laserSpeed;
-    public int laserDamage = 5;
+
+    public float movementSpeed;
+    public int enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2);
+        transform.position = new Vector3(0, 6, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
-        
+        this.transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
