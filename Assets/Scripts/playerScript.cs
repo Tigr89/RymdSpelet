@@ -23,12 +23,15 @@ public class playerScript : MonoBehaviour
         inputX = Input.GetAxis("Horizontal");
 
         transform.Translate(Vector3.right * movementSpeed * inputX * Time.deltaTime );
+        
+        float inputY;
+        inputY = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime );
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(laserBullet, transform.position, Quaternion.identity);
-
-
         }
 
 

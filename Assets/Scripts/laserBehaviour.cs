@@ -20,4 +20,9 @@ public class laserBehaviour : MonoBehaviour
         this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
