@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, -4, 0);
-
     }
 
     // Update is called once per frame

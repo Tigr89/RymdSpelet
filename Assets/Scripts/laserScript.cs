@@ -19,4 +19,7 @@ public class laserScript : MonoBehaviour
         transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
         
     }
+
+
+
 }
