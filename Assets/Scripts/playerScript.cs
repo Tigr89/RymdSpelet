@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
+    private float playerSpeed = 3;
+    private int playerhealth = 3;
+
     public float movementspeed;
-    public int playerhealth;
+    public GameObject laserGreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,28 +22,11 @@ public class playerScript : MonoBehaviour
         inputX = Input.GetAxis("Horizontal");
 
         transform.Translate(Vector3.right * movementspeed * inputX * Time.deltaTime);
-    }
-}
-public class laserscript : MonoBehaviour
-{
-    public float speed;
-    //start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //The laser moves up at the desired speed.
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-
-        //If the laser gets  out of bounds (which in my case was 8 in y-axis) it will destroy itself.
-        if (transform.position.y > 8)
+        if (Input.GetButtonDown("Fire1"))
         {
-            Destroy(gameObject);
+            Instantiate(laserGreen, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
         }
     }
-
 }
+
