@@ -19,4 +19,17 @@ public class laserPewPew : MonoBehaviour
 
         
     }
+    
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            Debug.Log("Collided with " + other.tag);
+        }
+            else
+        {
+             Destroy(other.gameObject);
+        }
+        
+    }
 }
