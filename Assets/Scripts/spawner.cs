@@ -10,7 +10,7 @@ public class spawner : MonoBehaviour
     public int meteorCounter;
     public GameObject Enemy;
     public GameObject Player;
-    public GameObject laserBullet;
+   // public GameObject laserBullet;
     public GameObject Meteor;
     public GameObject speedLine;
 
@@ -39,6 +39,7 @@ public class spawner : MonoBehaviour
             {
                 Instantiate(Enemy, new Vector3(Random.Range(-8, 8), 5.5f, 0), Quaternion.identity);
                 enemyCounter++;
+                //debug skriver ut i loggen
                 Debug.Log(enemyCounter);
                 yield return new WaitForSeconds(3);
             }
@@ -52,6 +53,7 @@ public class spawner : MonoBehaviour
    
 
     }
+    //
     IEnumerator MeteorSpawner()
     {
         while (true)
@@ -73,4 +75,5 @@ public class spawner : MonoBehaviour
         }
 
     }
+    
 }

@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 28d94250bd62823499c57a59bb0407db
+guid: c4bccd9bf0afcd94fbda95a1643c2bfa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Enemy: {fileID: 3939112659843046300, guid: 755a5027cc3405d4eb0b3a3fe288f3e5, type: 3}
+  - Player: {instanceID: 0}
+  - laserBullet: {fileID: 4379284661790789796, guid: e257a0844453b6f428898dce43dfbf45, type: 3}
+  - Meteor: {fileID: 5669801914555685534, guid: cc018fcc717a1974483b5f0f2db20f8f, type: 3}
+  - speedLine: {fileID: 7524500321670341745, guid: 1e6ca8ad49db81047937adb8c87af1de, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

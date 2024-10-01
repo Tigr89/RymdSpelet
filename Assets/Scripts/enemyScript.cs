@@ -8,11 +8,15 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     public float movementSpeed;
+    public int enemyHP;
+    public GameObject Manager;
     
 
     // Start is called before the first frame update
     void Start()
     {
+
+        Manager = GameObject.Find("Manager").gameObject;
         //transform.position = new Vector3(0, 8, 0);
         
     }
@@ -43,8 +47,12 @@ public class enemyScript : MonoBehaviour
 
         else if (other.tag == "Laser")
         {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+            enemyHP--;
+            if (enemyHP <= 0)
+            Manager.GetComponent<spawner>().enemyCounter--;
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+
         }
     }
     
