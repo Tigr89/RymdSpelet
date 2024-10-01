@@ -32,6 +32,19 @@ public class playerScript : MonoBehaviour
 
         transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime );
 
+        /*
+         // Modifiera den här koden för att göra wrap around effekt för spelaren.
+        if (transform.position.x <= 9)
+        {
+            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+        }
+        
+        if (transform.position.x <= 9)
+        {
+            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+        }
+        */
+
         if (Input.GetKey(KeyCode.Space) && Time.time > _nextShot)
         {
             Instantiate(laserBullet, transform.position, Quaternion.identity);

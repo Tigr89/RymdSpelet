@@ -6,28 +6,44 @@ public class enemyBehaviour : MonoBehaviour
 {
 
     public float movementSpeed;
+    public float minMovementSpeed;
+    public float maxMovementSpeed;
     public int health, maxHealth;
+    public GameObject enemySpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-
-        transform.position = new Vector3(0, 6, 0);
+        movementSpeed = Random.Range(minMovementSpeed, maxMovementSpeed);
+        enemySpawner = GameObject.Find("enemySpawner").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
 
+        if(transform.position.y <= -8)
+        {
+            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+        }
+       
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            health = 0;
+        }
+    }
     public void takeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            enemySpawner.GetComponent<spawnScript>().enemyCounter--;
             Destroy(gameObject);
         }
     }
