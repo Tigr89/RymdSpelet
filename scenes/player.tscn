@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckqbqnffao38y"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_3y8jx"]
+[ext_resource type="Texture2D" uid="uid://cdi86c1hfjylq" path="res://Sprites/Ships/player/player.png" id="1_4xsa3"]
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_3y8jx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_4xsa3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D"]
+polygon = PackedVector2Array(-5.71429, -38.5714, -10, -38.5714, -12.8571, -12.8571, -35.7143, 1.42857, -45.7143, -7.14286, -50, -7.14286, -45.7143, 25.7143, -41.4286, 25.7143, -41.4286, 21.4286, -12.8571, 27.1429, -8.57143, 38.5714, 8.57143, 38.5714, 14.2857, 27.1429, 41.4286, 21.4286, 44.2857, 27.1429, 47.1429, 25.7143, 50, -7.14286, 42.8571, -7.14286, 40, -1.42857, 35.7143, 0, 12.8571, -14.2857, 8.57143, -38.5714)
+
+[node name="barrel" type="Marker2D" parent="."]
+position = Vector2(0, -33)

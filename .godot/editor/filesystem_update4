@@ -1,5 +1,6 @@
-res://character_body_2d.tscn
-res://CharacterBody2D.gd
-res://Area2D.gd
-res://level.tscn
-res://laser_green.tscn
+res://scenes/game.tscn
+res://scripts/game.gd
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scripts/laser.gd
+res://scenes/laser.tscn
