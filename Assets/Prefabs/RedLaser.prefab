@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserSpeed: 15
-  laserDamage: 5
+  laserDamage: 3
+  hitEffect: {fileID: 1210692406139880293, guid: 5c41293e492681b48bcdcf1efdf6fe95, type: 3}
 --- !u!50 &8746229885370249840
 Rigidbody2D:
   serializedVersion: 4

@@ -6,6 +6,7 @@ public class laserBehaviour : MonoBehaviour
 {
     public float laserSpeed;
     public int laserDamage;
+    public GameObject hitEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,9 @@ public class laserBehaviour : MonoBehaviour
             {
                 enemyBehaviour.takeDamage(laserDamage);
             }
+
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+
             // Destroy the projectile
             Destroy(gameObject);
         }
