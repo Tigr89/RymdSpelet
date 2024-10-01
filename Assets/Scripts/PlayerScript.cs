@@ -12,7 +12,7 @@ public class playerScript : MonoBehaviour
     {
         transform.position = new Vector3(0, -1.71f, 0);
         transform.localScale = new Vector3(0, 0, 0);
-
+        //test
 
     }
 
@@ -25,10 +25,10 @@ public class playerScript : MonoBehaviour
         float inputY;
         inputY = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * inputY * 0.8f * Time.deltaTime);
 
 
-        transform.Translate(Vector3.right * movementSpeed * inputX * Time.deltaTime);
+        transform.Translate(Vector3.right * movementSpeed * inputX * 1.4f * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -64,7 +64,7 @@ public class playerScript : MonoBehaviour
         
             if(transform.localScale.x <= 0.6f)
         {
-            transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+            transform.localScale += new Vector3(0.031f, 0.031f, 0.031f);
         }
 
     }

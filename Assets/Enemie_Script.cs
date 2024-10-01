@@ -26,8 +26,10 @@ public class Enemie_Script : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player") {
             other.transform.GetComponent<playerScript>().TakeDamage();
+        }
+            
 
         // Nedanstående kod ska nog vara en "if sats"?
         if (other.tag == "Bullet")
