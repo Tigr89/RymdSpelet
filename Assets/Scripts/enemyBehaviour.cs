@@ -6,11 +6,13 @@ public class enemyBehaviour : MonoBehaviour
 {
 
     public float movementSpeed;
-    public int enemyHealth;
+    public int health, maxHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
+
         transform.position = new Vector3(0, 6, 0);
     }
 
@@ -18,10 +20,15 @@ public class enemyBehaviour : MonoBehaviour
     void Update()
     {
         this.transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void takeDamage(int damage)
     {
-        Destroy(gameObject);
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

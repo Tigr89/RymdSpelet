@@ -5,7 +5,7 @@ using UnityEngine;
 public class laserBehaviour : MonoBehaviour
 {
     public float laserSpeed;
-    public int laserDamage = 5;
+    public int laserDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,18 @@ public class laserBehaviour : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        // Check if the object hit is an enemy
+        if (other.CompareTag("Enemy"))
+        {
+            enemyBehaviour enemyBehaviour = other.GetComponent<enemyBehaviour>();
+            if (enemyBehaviour != null)
+            {
+                enemyBehaviour.takeDamage(laserDamage);
+            }
+            // Destroy the projectile
+            Destroy(gameObject);
+        }
     }
 }
