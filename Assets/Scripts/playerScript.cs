@@ -7,6 +7,7 @@ public class playerScript : MonoBehaviour
     private float playerSpeed = 3;
     private int playerhealth = 3;
 
+
     public float movementspeed;
     public GameObject laserGreen;
     // Start is called before the first frame update
@@ -27,6 +28,10 @@ public class playerScript : MonoBehaviour
         {
             Instantiate(laserGreen, transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
         }
+    }
+    public void TakeDamage(int damage)
+    {
+      
     }
 }
 
