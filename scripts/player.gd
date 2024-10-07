@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 signal laser_shot(laser_scene, location)
 
@@ -8,9 +8,15 @@ signal laser_shot(laser_scene, location)
 
 var laser_scene = preload("res://scenes/laser.tscn")
 
+var shoot_cd := false 
+
 func _process(delta):
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	if Input.is_action_pressed("shoot"):
+		if !shoot_cd:
+			shoot_cd = true
+			shoot()
+			await get_tree().create_timer(0.25).timeout
+			shoot_cd = false
 
 func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -19,3 +25,6 @@ func _physics_process(delta):
 
 func shoot():
 	laser_shot.emit(laser_scene, barrel.global_position)
+
+func die():
+	queue_free()

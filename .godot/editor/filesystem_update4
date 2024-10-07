@@ -1,6 +1,7 @@
 res://scenes/game.tscn
-res://scripts/game.gd
 res://scenes/player.tscn
-res://scripts/player.gd
-res://scripts/laser.gd
 res://scenes/laser.tscn
+res://scripts/player.gd
+res://scenes/enemy.tscn
+res://scripts/enemy.gd
+res://scripts/laser.gd
