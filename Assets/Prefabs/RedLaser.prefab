@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e9a839059f54e468e33c2a0d34a622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 15
-  laserDamage: 3
+  laserSpeed: 20
+  laserDamage: 5
   hitEffect: {fileID: 1210692406139880293, guid: 5c41293e492681b48bcdcf1efdf6fe95, type: 3}
 --- !u!50 &8746229885370249840
 Rigidbody2D:

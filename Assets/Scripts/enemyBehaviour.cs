@@ -30,12 +30,13 @@ public class enemyBehaviour : MonoBehaviour
         }
        
     }
-
-    public void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        // Check if the object collides with the player.
+        if (other.CompareTag("Player"))
         {
-            health = 0;
+            enemySpawner.GetComponent<spawnScript>().enemyCounter--;
+            Destroy(gameObject);
         }
     }
     public void takeDamage(int damage)
@@ -46,5 +47,8 @@ public class enemyBehaviour : MonoBehaviour
             enemySpawner.GetComponent<spawnScript>().enemyCounter--;
             Destroy(gameObject);
         }
+
+        
+
     }
 }

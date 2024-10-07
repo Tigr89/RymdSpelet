@@ -7,10 +7,10 @@ public class playerScript : MonoBehaviour
 {
     public float movementSpeed;
     public int playerHealth;
-    public int playerLives;
     public GameObject laserBullet;
     private float _nextShot = 0f;
     [SerializeField] private float _fireDelay = 0.5f;
+    public GameObject playerSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +52,15 @@ public class playerScript : MonoBehaviour
         }
 
 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the object collides with the player.
+        if (other.CompareTag("Enemy"))
+        {
+            playerSpawner.GetComponent<playerSpawnScript>().playerLives--;
+            Destroy(gameObject);
+        }
     }
 }
