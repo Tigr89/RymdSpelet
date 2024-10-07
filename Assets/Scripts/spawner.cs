@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class spawner : MonoBehaviour
    // public GameObject laserBullet;
     public GameObject Meteor;
     public GameObject speedLine;
+    public GameObject Canvas;
+    
 
 
 
@@ -47,25 +50,22 @@ public class spawner : MonoBehaviour
             {
                 yield return null;
             }
-            
         }
-
-   
-
     }
-    //
+    
+
     IEnumerator MeteorSpawner()
     {
         while (true)
         {
             //if (GameObject.FindWithTag("Player") != null)
-            if (enemyCounter == 2 && GameObject.FindWithTag("Player") != null)
+            if (meteorCounter < 5 && GameObject.FindWithTag("Player") != null)
             {
                 Instantiate(Meteor, new Vector3(Random.Range(-8, 8), 5.5f, 0), Quaternion.identity);
                 meteorCounter++;
 
                 Debug.Log(meteorCounter);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(5);
             }
             else
             {
@@ -75,5 +75,9 @@ public class spawner : MonoBehaviour
         }
 
     }
-    
+    public void EnemyDeath(int enemyValue)
+    {
+        enemyCounter--;
+        Canvas.GetComponent<UI>().playerScore += Enemy.GetComponent<enemyScript>().enemyValue;
+    }
 }

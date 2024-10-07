@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MeteorScript : MonoBehaviour
 {
-    
+    public GameObject Manager;
     public float movementSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Manager = GameObject.Find("Manager").gameObject;
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class MeteorScript : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            Manager.GetComponent<spawner>().enemyCounter--;
         }
 
     }

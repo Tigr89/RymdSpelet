@@ -9,7 +9,9 @@ public class enemyScript : MonoBehaviour
 {
     public float movementSpeed;
     public int enemyHP;
+    public int enemyValue;
     public GameObject Manager;
+   
     
 
     // Start is called before the first frame update
@@ -45,11 +47,11 @@ public class enemyScript : MonoBehaviour
             //Debug.Log("Hit: " + other);
         }
 
-        else if (other.tag == "Laser")
+        if (other.tag == "Laser")
         {
             enemyHP--;
             if (enemyHP <= 0)
-            Manager.GetComponent<spawner>().enemyCounter--;
+            Manager.GetComponent<spawner>().EnemyDeath();
             Destroy(gameObject);
             Destroy(other.gameObject);
 

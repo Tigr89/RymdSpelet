@@ -172,3 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  enemyHP: 0
+  enemyValue: 3
+  Manager: {fileID: 0}
