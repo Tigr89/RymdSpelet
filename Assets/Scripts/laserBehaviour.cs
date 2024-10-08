@@ -17,8 +17,7 @@ public class laserBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
-        
+        this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);      
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -32,6 +31,7 @@ public class laserBehaviour : MonoBehaviour
                 enemyBehaviour.takeDamage(laserDamage);
             }
 
+            // Spawn hit marker
             Instantiate(hitEffect, transform.position, Quaternion.identity);
 
             // Destroy the projectile

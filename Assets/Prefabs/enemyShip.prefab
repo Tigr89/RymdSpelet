@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9079, y: -1.2388242, z: 0.066792265}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,12 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ef7e183ca49b04eafc4a4238e35c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
-  minMovementSpeed: 3
-  maxMovementSpeed: 3
+  movementSpeed: 0
+  minMovementSpeed: 0.5
+  maxMovementSpeed: 2
   health: 0
   maxHealth: 15
-  enemySpawner: {fileID: 0}
+  enemyDamage: 1
+  Spawner: {fileID: 0}
+  enemyValue: 0
 --- !u!61 &7075578501776641507
 BoxCollider2D:
   m_ObjectHideFlags: 0

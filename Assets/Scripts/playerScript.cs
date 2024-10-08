@@ -7,16 +7,16 @@ public class playerScript : MonoBehaviour
 {
     public float movementSpeed;
     public int playerHealth;
+    public int playerMaxHealth;
     public GameObject laserBullet;
-    private float _nextShot = 0f;
-    [SerializeField] private float _fireDelay = 0.5f;
-    public GameObject playerSpawner;
+    private float nextShot = 0f;
+    [SerializeField] private float fireDelay = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, -3, 0);
-        
+        playerHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -34,32 +34,29 @@ public class playerScript : MonoBehaviour
 
         /*
          // Modifiera den här koden för att göra wrap around effekt för spelaren.
-        if (transform.position.x <= 9)
+        if (transform.position.x <= 7)
         {
-            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+            transform.position = new Vector3(-6.9, 0, 0);
         }
         
-        if (transform.position.x <= 9)
+        if (transform.position.x <= -7)
         {
-            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+            transform.position = new Vector3(6.9, 6f, 0);
         }
         */
 
-        if (Input.GetKey(KeyCode.Space) && Time.time > _nextShot)
+        if (Input.GetKey(KeyCode.Space) && Time.time > nextShot)
         {
             Instantiate(laserBullet, transform.position, Quaternion.identity);
-            _nextShot = Time.time + _fireDelay;
+            nextShot = Time.time + fireDelay;
         }
-
-
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    public void takeDamage(int damage)
     {
-        // Check if the object collides with the player.
-        if (other.CompareTag("Enemy"))
+        playerHealth -= damage;
+
+        if (playerHealth <= 0)
         {
-            playerSpawner.GetComponent<playerSpawnScript>().playerLives--;
             Destroy(gameObject);
         }
     }

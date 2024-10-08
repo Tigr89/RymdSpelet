@@ -9,14 +9,16 @@ public class enemyBehaviour : MonoBehaviour
     public float minMovementSpeed;
     public float maxMovementSpeed;
     public int health, maxHealth;
-    public GameObject enemySpawner;
+    public int enemyDamage;
+    public GameObject Spawner;
+    public int enemyValue;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         movementSpeed = Random.Range(minMovementSpeed, maxMovementSpeed);
-        enemySpawner = GameObject.Find("enemySpawner").gameObject;
+        Spawner = GameObject.Find("Spawner").gameObject;
     }
 
     // Update is called once per frame
@@ -24,9 +26,16 @@ public class enemyBehaviour : MonoBehaviour
     {
         transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
 
-        if(transform.position.y <= -8)
+        if (health <= 0)
         {
-            transform.position = new Vector3(Random.Range(-8, 8), 6f, 0);
+            Spawner.GetComponent<spawnScript>().enemyCounter--;
+            UIScript.instance.addPoint();
+            Destroy(gameObject);
+        }
+
+        if (transform.position.y <= -8)
+        {
+            transform.position = new Vector3(Random.Range(-6, 6), 4f, 0);
         }
        
     }
@@ -35,20 +44,18 @@ public class enemyBehaviour : MonoBehaviour
         // Check if the object collides with the player.
         if (other.CompareTag("Player"))
         {
-            enemySpawner.GetComponent<spawnScript>().enemyCounter--;
+            playerScript playerScript = other.GetComponent<playerScript>();
+            if (playerScript != null)
+            {
+                playerScript.takeDamage(enemyDamage);
+            }
+
+            Spawner.GetComponent<spawnScript>().enemyCounter--;
             Destroy(gameObject);
         }
     }
     public void takeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            enemySpawner.GetComponent<spawnScript>().enemyCounter--;
-            Destroy(gameObject);
-        }
-
-        
-
     }
 }

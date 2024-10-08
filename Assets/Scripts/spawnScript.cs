@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class spawnScript : MonoBehaviour
 {
+    //Enemy Variables
     public GameObject enemyShip;
     public int enemyCounter;
     public int enemyMaxCount;
-    public float spawnDelay;
+    public float enemySpawnDelay;
+
+    //Player Variables
     private GameObject player;
+    /*public int playerHealth;
+    public int playerMaxHealth;*/
+
+    //Misc.
+    public GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +27,7 @@ public class spawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator enemySpawner()
@@ -28,10 +36,10 @@ public class spawnScript : MonoBehaviour
         {
             if (enemyCounter < enemyMaxCount && GameObject.Find("player") != null) 
             {
-            Instantiate(enemyShip, new Vector3(Random.Range(-8, 8), 6f, 0), Quaternion.identity);
+            Instantiate(enemyShip, new Vector3(Random.Range(-6, 6), 4f, 0), Quaternion.identity);
                 enemyCounter++;
 
-                yield return new WaitForSeconds(spawnDelay);
+                yield return new WaitForSeconds(enemySpawnDelay);
                 Debug.Log("Enemy counter is: " + enemyCounter);
             }
             else yield return null;
