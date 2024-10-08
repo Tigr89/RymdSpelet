@@ -17,6 +17,7 @@ public class laserBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Makes the laser fly upward
         this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);      
     }
 

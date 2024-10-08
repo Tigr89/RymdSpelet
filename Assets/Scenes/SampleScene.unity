@@ -956,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: fireDelay
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: playerHealth
