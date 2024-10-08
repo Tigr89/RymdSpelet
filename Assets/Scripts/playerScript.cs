@@ -7,8 +7,8 @@ public class playerScript : MonoBehaviour
     public GameObject laser;
     public float movementSpeed = 5;
     public bool canShoot;
-    public int playerHP;
-    
+    public int playerHP = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class playerScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
         }
-       
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * movementSpeed * Time.deltaTime);
@@ -32,19 +32,26 @@ public class playerScript : MonoBehaviour
             transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.D)) 
+        if (Input.GetKey(KeyCode.D))
         {
 
             transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
         }
-        
+
         if (Input.GetButtonDown("Fire1"))
-        { Instantiate(laser, transform.position, Quaternion.identity); 
+        {
+            Instantiate(laser, transform.position, Quaternion.identity);
         }
     }
     public void TakeDamage()
     {
+        playerHP = playerHP - 20;
 
+        if (playerHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+     
 }
 

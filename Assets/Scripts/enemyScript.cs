@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class enemyScript : MonoBehaviour
 {
     public float speed;
+    public GameObject spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,19 +27,18 @@ public class enemyScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        //Checks whether the other has the tag "Player". If true, it executes the code below.
-        //In order for this to work you need to assign tags to objects in the unity editor. This
-        //is done in the inspector window
         if (other.tag == "Player")
         {
             //Call on method in player to deal damage
             other.transform.GetComponent<playerScript>().TakeDamage();
-            Debug.Log("Hit: " + other);
+            //Debug.Log("Hit: " + other);
         }
 
         if (other.tag == "Laser")
         {
+
+            GameObject.Find("enemySpawner").transform.GetComponent<spawnScript>().enemyCounter -= 1;
+            Debug.Log(GameObject.Find("enemySpawner"));
             Destroy(gameObject);
         }
     }

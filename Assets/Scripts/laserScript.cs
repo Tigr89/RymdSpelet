@@ -32,9 +32,10 @@ public class laserScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("collided with " + other.tag);
+            //Debug.Log("collided with " + other.tag);
         }
-        else
+        /*else
         Destroy(other.gameObject);
+        */
     }
 }
