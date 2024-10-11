@@ -45,7 +45,7 @@ public class enemyScript : MonoBehaviour
         if (other.tag == "Player")
         {
         other.GetComponent<playerScript>().TakeDamage(damage);
-            Debug.Log(damage);
+            
 
         }
 
