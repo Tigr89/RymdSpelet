@@ -10,7 +10,7 @@ public class playerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, -1.71f, 0);
+        transform.position = new Vector3(0, -3.33f, 0);
         transform.localScale = new Vector3(0, 0, 0);
         //test
 
@@ -25,10 +25,10 @@ public class playerScript : MonoBehaviour
         float inputY;
         inputY = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.up * movementSpeed * inputY * 0.8f * Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * inputY * 0.4f * Time.deltaTime);
 
 
-        transform.Translate(Vector3.right * movementSpeed * inputX * 1.4f * Time.deltaTime);
+        transform.Translate(Vector3.right * movementSpeed * inputX * 1 * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -36,24 +36,24 @@ public class playerScript : MonoBehaviour
 
 
         }
-        if (transform.position.x > 9)
+        if (transform.position.x > 3)
         {
-            transform.position = new Vector3(0, -1.77f, 0);
+            transform.position = new Vector3(0, -3.33f, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
-        if (transform.position.x < -9)
+        if (transform.position.x < -3)
         {
-            transform.position = new Vector3(0, -1.77f, 0);
+            transform.position = new Vector3(0, -3.33f, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
         if (transform.position.y > 5.1f)
         {
-            transform.position = new Vector3(0, -1.77f, 0);
+            transform.position = new Vector3(0, -3.33f, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
-        if (transform.position.y < -5.1f)
+        if (transform.position.y < -5)
         {
-            transform.position = new Vector3(0, -1.77f, 0);
+            transform.position = new Vector3(0, -3.33f, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
         if (Input.GetKeyDown(KeyCode.F))
@@ -64,7 +64,7 @@ public class playerScript : MonoBehaviour
         
             if(transform.localScale.x <= 0.6f)
         {
-            transform.localScale += new Vector3(0.031f, 0.031f, 0.031f);
+            transform.localScale += new Vector3(0.0031f, 0.0031f, 0.0031f);
         }
 
     }

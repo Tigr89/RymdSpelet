@@ -29,7 +29,7 @@ public class Spawn : MonoBehaviour
             if (enemyCounter < 10 && GameObject.Find("Player") != null)
             {
 
-                Instantiate(olaf, new Vector3(Random.Range(-8, 8), 7, 0), Quaternion.identity);
+                Instantiate(olaf, new Vector3(Random.Range(-2.7f, 2.7f), 7, 0), Quaternion.identity);
 
             
                 enemyCounter++;
