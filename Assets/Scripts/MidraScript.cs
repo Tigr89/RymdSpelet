@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class YuhScript : MonoBehaviour
 {
@@ -35,6 +37,13 @@ public class YuhScript : MonoBehaviour
         {
             transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
         }
-           
-    }
-}
+        if (Input.GetKey(KeyCode.Space))
+            Instantiate
+
+
+
+
+
+
+
+    }    }
