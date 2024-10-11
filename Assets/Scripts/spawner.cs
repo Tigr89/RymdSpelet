@@ -75,7 +75,7 @@ public class spawner : MonoBehaviour
         }
 
     }
-    public void EnemyDeath(int enemyValue)
+    public void EnemyDeathTracker(int enemyValue)
     {
         enemyCounter--;
         Canvas.GetComponent<UI>().playerScore += Enemy.GetComponent<enemyScript>().enemyValue;

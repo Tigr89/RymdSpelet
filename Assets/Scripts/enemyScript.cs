@@ -10,17 +10,20 @@ public class enemyScript : MonoBehaviour
     public float movementSpeed;
     public int enemyHP;
     public int enemyValue;
+    public int damage;
     public GameObject Manager;
-   
-    
+    public GameObject Player;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         Manager = GameObject.Find("Manager").gameObject;
+        Player = GameObject.Find("Player").gameObject;
+
         //transform.position = new Vector3(0, 8, 0);
-        
+
     }
 
 
@@ -41,19 +44,21 @@ public class enemyScript : MonoBehaviour
         
         if (other.tag == "Player")
         {
-        Destroy(other.gameObject);
-            //Call on method in player to deal damage
-            //other.transform.GetComponent<playerScript>().TakeDamage();
-            //Debug.Log("Hit: " + other);
+        other.GetComponent<playerScript>().TakeDamage(damage);
+            Debug.Log(damage);
+
         }
 
         if (other.tag == "Laser")
         {
             enemyHP--;
             if (enemyHP <= 0)
-            Manager.GetComponent<spawner>().EnemyDeath();
+            {
+            Manager.GetComponent<spawner>().EnemyDeathTracker(enemyValue);
             Destroy(gameObject);
             Destroy(other.gameObject);
+            }
+           
 
         }
     }

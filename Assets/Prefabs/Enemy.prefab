@@ -171,7 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fbc546d942b7f4f9dbe51e3520a18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  enemyHP: 0
-  enemyValue: 3
+  movementSpeed: 6
+  enemyHP: 1
+  enemyValue: 1
+  damage: 1
   Manager: {fileID: 0}
+  Player: {fileID: 0}

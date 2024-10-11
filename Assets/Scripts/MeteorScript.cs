@@ -6,6 +6,7 @@ public class MeteorScript : MonoBehaviour
 {
     public GameObject Manager;
     public float movementSpeed;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,7 @@ public class MeteorScript : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            Destroy(other.gameObject);
-            //Call on method in player to deal damage
+            other.GetComponent<playerScript>().TakeDamage(damage);
 
         }
         if (other.tag == "Enemy")
