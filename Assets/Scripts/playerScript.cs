@@ -8,10 +8,6 @@ public class playerScript : MonoBehaviour
     //Player Movement
     public float movementSpeed;
 
-    //Player Health
-    public int playerHealth;
-    public int playerMaxHealth;
-
     //Player Weapons
     public GameObject laserBullet;
     private float nextShot = 0f;
@@ -22,9 +18,6 @@ public class playerScript : MonoBehaviour
     {
         //Teleports player to start position
         transform.position = new Vector3(0, -3, 0);
-
-        //Sets player health to its maximum
-        playerHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -60,18 +53,6 @@ public class playerScript : MonoBehaviour
         {
             Instantiate(laserBullet, transform.position, Quaternion.identity);
             nextShot = Time.time + fireDelay;
-        }
-    }
-
-    //Let's the player lose health
-    public void takeDamage(int damage)
-    {
-        playerHealth -= damage;
-
-        //What to do if player runs out of health
-        if (playerHealth <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 }

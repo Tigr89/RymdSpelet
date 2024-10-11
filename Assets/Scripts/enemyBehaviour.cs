@@ -12,6 +12,7 @@ public class enemyBehaviour : MonoBehaviour
     public int enemyDamage;
     public GameObject Spawner;
     public int enemyValue;
+    public GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class enemyBehaviour : MonoBehaviour
         if (health <= 0)
         {
             Spawner.GetComponent<spawnScript>().enemyCounter--;
-            UIScript.instance.addPoint();
+            UIScript.instance.addPoint(enemyValue);
             Destroy(gameObject);
         }
 
@@ -44,10 +45,10 @@ public class enemyBehaviour : MonoBehaviour
         // Check if the object collides with the player.
         if (other.CompareTag("Player"))
         {
-            playerScript playerScript = other.GetComponent<playerScript>();
-            if (playerScript != null)
+            UIScript UIScript = other.GetComponent<UIScript>();
+            if (UIScript != null)
             {
-                playerScript.takeDamage(enemyDamage);
+                UIScript.takeDamage(enemyDamage);
             }
 
             Spawner.GetComponent<spawnScript>().enemyCounter--;

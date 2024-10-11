@@ -106,7 +106,8 @@ MonoBehaviour:
   maxHealth: 15
   enemyDamage: 1
   Spawner: {fileID: 0}
-  enemyValue: 0
+  enemyValue: 10
+  Canvas: {fileID: 0}
 --- !u!61 &7075578501776641507
 BoxCollider2D:
   m_ObjectHideFlags: 0
