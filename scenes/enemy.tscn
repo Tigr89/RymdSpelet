@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://d11kw7cagq1qu"]
+[gd_scene load_steps=4 format=3 uid="uid://d11kw7cagq1qu"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_1bm1d"]
 [ext_resource type="Texture2D" uid="uid://cqti8ypbkqche" path="res://Sprites/Ships/Enemies/enemyRed1.png" id="1_twk8n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tslbg"]
+radius = 34.0
+height = 68.0
 
 [node name="enemy" type="Area2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_1bm1d")
+speed = 200
+hp = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.65, 0.65)
@@ -15,8 +21,9 @@ texture = ExtResource("1_twk8n")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -44)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PackedVector2Array(-19, -28, -30, -11, -30, -9, -16, 28, -7, 25, -11, 8, -8, 11, 7, 11, 9, 7, 11, 8, 6, 25, 17, 28, 31, -11, 18, -29, 6, -23, 5, -16, -5, -16, -7, -23)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_tslbg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

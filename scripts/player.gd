@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 signal laser_shot(laser_scene, location)
 
-@export var speed = 400
+@export var speed = 350
 
 @onready var barrel = $barrel
 
@@ -22,6 +22,8 @@ func _physics_process(delta):
 	var direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	velocity = direction * speed
 	move_and_slide()
+	
+	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
 
 func shoot():
 	laser_shot.emit(laser_scene, barrel.global_position)

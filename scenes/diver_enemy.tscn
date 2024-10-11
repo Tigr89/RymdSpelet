@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfsy84xah2kwx"]
+
+[ext_resource type="PackedScene" uid="uid://d11kw7cagq1qu" path="res://scenes/enemy.tscn" id="1_keqab"]
+[ext_resource type="Texture2D" uid="uid://be87j52xl27cy" path="res://Sprites/Ships/Enemies/enemyRed5.png" id="2_sa2fp"]
+
+[node name="diver_enemy" instance=ExtResource("1_keqab")]
+position = Vector2(273, 128)
+speed = 300
+hp = 1
+scorepoints = 50
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_sa2fp")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -7)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5sb05vevg3k3"]
+
+[ext_resource type="PackedScene" uid="uid://d11kw7cagq1qu" path="res://scenes/enemy.tscn" id="1_omjsb"]
+[ext_resource type="Texture2D" uid="uid://c7qbueweyjp4j" path="res://Sprites/Ships/Enemies/enemyShip.png" id="2_wyhga"]
+
+[node name="enemy_slow" instance=ExtResource("1_omjsb")]
+speed = 100
+hp = 3
+scorepoints = 25
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wyhga")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -12)
