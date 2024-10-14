@@ -174,6 +174,10 @@ MonoBehaviour:
   playerShot: {fileID: 3683208599187811569, guid: 0b1e3aff67493b5429658b1b27e600b6, type: 3}
   canShoot: 1
   canShootCooldownBase: 32
+  powerupMovementSpeedChange: 2
+  powerupMovementSpeedTimerBase: 960
+  powerupShootCooldownChange: 12
+  powerupShootCooldownTimerBase: 960
   playerHealth: 3
   playerLife: 1
 --- !u!212 &309673945
@@ -271,7 +275,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.99, y: 0.75}
+  m_Size: {x: 0.9, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &309673947
 Rigidbody2D:

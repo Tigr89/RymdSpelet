@@ -13,6 +13,13 @@ public class PlayerScripts : MonoBehaviour
     int canShootCooldown;
     public int canShootCooldownBase;
 
+    public float powerupMovementSpeedChange; // The strength of the power up.
+    public int powerupMovementSpeedTimerBase; // The base time.
+    int powerupMovementSpeedTimer = 0; // The current time.
+    public int powerupShootCooldownChange; // The strength of the power up.
+    public int powerupShootCooldownTimerBase; // The base time.
+    int powerupShootCooldownTimer = 0; // The current time.
+
     public int playerHealth;
     public int playerLife;
 
@@ -25,24 +32,49 @@ public class PlayerScripts : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.UpArrow) == true)
+        if (powerupMovementSpeedTimer <= 0)
         {
-            transform.Translate(Vector3.up * Time.deltaTime * movementSpeed);
-        }
+            if (Input.GetKey(KeyCode.UpArrow) == true)
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * movementSpeed);
+            }
 
-        if (Input.GetKey(KeyCode.LeftArrow) == true)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * movementSpeed);
-        }
+            if (Input.GetKey(KeyCode.LeftArrow) == true)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * movementSpeed);
+            }
 
-        if (Input.GetKey(KeyCode.DownArrow) == true)
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * movementSpeed);
-        }
+            if (Input.GetKey(KeyCode.DownArrow) == true)
+            {
+                transform.Translate(Vector3.down * Time.deltaTime * movementSpeed);
+            }
 
-        if (Input.GetKey(KeyCode.RightArrow) == true)
+            if (Input.GetKey(KeyCode.RightArrow) == true)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+            }
+        }
+        else
         {
-            transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+            if (Input.GetKey(KeyCode.UpArrow) == true)
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * (movementSpeed + powerupMovementSpeedChange));
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow) == true)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * (movementSpeed + powerupMovementSpeedChange));
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow) == true)
+            {
+                transform.Translate(Vector3.down * Time.deltaTime * (movementSpeed + powerupMovementSpeedChange));
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow) == true)
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * (movementSpeed + powerupMovementSpeedChange));
+            }
         }
 
 
@@ -67,15 +99,30 @@ public class PlayerScripts : MonoBehaviour
         {
             Instantiate(playerShot, this.transform.position, transform.rotation);
             canShoot = false;
-            canShootCooldown = canShootCooldownBase;
+            if (powerupShootCooldownTimer <= 0)
+            {
+                canShootCooldown = canShootCooldownBase;
+            }
+            else
+            {
+                canShootCooldown = canShootCooldownBase - powerupShootCooldownChange;
+            }
         }
         if (canShootCooldown > 0)
         {
             canShootCooldown = canShootCooldown - 1;
-            if (canShootCooldown <= 0)
-            {
-                canShoot = true;
-            }
+        }
+        if (canShootCooldown <= 0)
+        {
+            canShoot = true;
+        }
+        if (powerupShootCooldownTimer > 0)
+        {
+            powerupShootCooldownTimer = powerupShootCooldownTimer - 1;
+        }
+        if (powerupMovementSpeedTimer > 0)
+        {
+            powerupMovementSpeedTimer = powerupMovementSpeedTimer - 1;
         }
     }
 
@@ -83,10 +130,15 @@ public class PlayerScripts : MonoBehaviour
     {
         if (collision.gameObject.tag == "PowerUp")
         {
-            movementSpeed = movementSpeed * 1.1f;
-            if (canShootCooldownBase > 1)
+            int poewrupType = collision.gameObject.GetComponent<PowerUpScript>().GetPowerupType;
+
+            if (poewrupType == 1)
             {
-                canShootCooldownBase = canShootCooldownBase - 3;
+                powerupMovementSpeedTimer = powerupMovementSpeedTimerBase;
+            }
+            else
+            {
+                powerupShootCooldownTimer = powerupShootCooldownTimerBase;
             }
 
             Destroy(collision.gameObject);

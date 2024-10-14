@@ -143,4 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4551af14d7cc5b4d84184a82d137829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.06
+  fallSpeed: 0.05
+  powerupMovementSprite: {fileID: 21300000, guid: 1a570a5d9768e2f4aa0a8ec95ac6e527, type: 3}
+  powerupCooldownSprite: {fileID: 21300000, guid: bbc764817326b61489716dc1e4f06bc7, type: 3}
