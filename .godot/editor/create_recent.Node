@@ -1,3 +1,8 @@
+GPUParticles2D
+Sprite2D
+ParallaxLayer
+ParallaxBackground
+Button
 Label
 Panel
 ColorRect
@@ -8,7 +13,3 @@ Node2D
 CollisionShape2D
 CollisionPolygon2D
 VisibleOnScreenNotifier2D
-Sprite2D
-Area2D
-Marker2D
-CharacterBody2D

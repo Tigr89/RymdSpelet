@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyfnih7xcp1oc"]
+[gd_scene load_steps=6 format=3 uid="uid://cyfnih7xcp1oc"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_y3hpc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfm4t"]
 bg_color = Color(0.2244, 0.46398, 0.66, 1)
@@ -8,6 +10,16 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_3j6xh"]
+font_size = 65
+outline_size = 20
+outline_color = Color(0, 1, 0.166667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kych3"]
+font_size = 65
+outline_size = 20
+outline_color = Color(0, 1, 0.166667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4uion"]
 font_size = 70
 outline_size = 20
 outline_color = Color(0, 1, 0.166667, 1)
@@ -19,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y3hpc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -46,9 +59,59 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mfm4t")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 104.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_right = 231.0
+offset_bottom = 96.0
 grow_horizontal = 2
 text = "GAME OVER!!!!!"
 label_settings = SubResource("LabelSettings_3j6xh")
+
+[node name="highscore" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.5
+offset_top = -188.5
+offset_right = 263.5
+offset_bottom = -92.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "highscore: 9999"
+label_settings = SubResource("LabelSettings_kych3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.5
+offset_top = -70.0
+offset_right = 165.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "score: 9999"
+label_settings = SubResource("LabelSettings_4uion")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retrybutton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 438.0
+offset_right = 412.0
+offset_bottom = 573.0
+theme_override_font_sizes/font_size = 40
+text = "retry"
+
+[connection signal="pressed" from="Panel/retrybutton" to="." method="_on_retrybutton_pressed"]

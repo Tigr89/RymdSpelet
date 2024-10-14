@@ -2,13 +2,10 @@ res://scenes/game.tscn
 res://scenes/player.tscn
 res://scenes/laser.tscn
 res://scenes/enemy.tscn
-res://scripts/player.gd
-res://scripts/enemy.gd
-res://scenes/enemy_2.tscn
 res://scenes/diver_enemy.tscn
 res://scenes/enemy_slow.tscn
-res://scripts/game.gd
-res://scripts/laser.gd
 res://scenes/HUD.tscn
-res://scripts/HUD.gd
 res://scenes/game_over.tscn
+res://scripts/game_over.gd
+res://scripts/player.gd
+res://scripts/game.gd
