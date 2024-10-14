@@ -47,13 +47,16 @@ public class playerScript : MonoBehaviour
     public void TakeDamage(int playerDamage)
     {
         
+        playerHP = playerHP - playerDamage;
+
         if (playerHP <= 0)
         {
+            playerHP = 0;
             Destroy(gameObject);
+            Canvas.GetComponent<UI>().playerHP = playerHP;
         }
 
-        //fortsätter under minus, dör inte
-        Canvas.GetComponent<UI>().playerHP -= playerHP - playerDamage;
+        Canvas.GetComponent<UI>().playerHP = playerHP;
 
 
 
