@@ -35,18 +35,18 @@ public class playerScript : MonoBehaviour
 
         transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime );
 
-        /*
+        
          // Modifiera den här koden för att göra wrap around effekt för spelaren.
-        if (transform.position.x <= 7)
+        if (transform.position.x >= 6.8)
         {
-            transform.position = new Vector3(-6.9, 0, 0);
+            transform.position = new Vector3((float)-6.79, transform.position.y, 0);
         }
         
-        if (transform.position.x <= -7)
+        if (transform.position.x <= -6.8)
         {
-            transform.position = new Vector3(6.9, 6f, 0);
+            transform.position = new Vector3((float)6.79, transform.position.y, 0);
         }
-        */
+        
 
         //Let's the player shoot by holding space
         if (Input.GetKey(KeyCode.Space) && Time.time > nextShot)

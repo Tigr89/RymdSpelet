@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawnScript : MonoBehaviour
+public class enemySpawnScript : MonoBehaviour
 {
     //Enemy Variables
     public GameObject enemyShip;
@@ -34,9 +34,9 @@ public class spawnScript : MonoBehaviour
     {
         while (true)
         {
-            if (enemyCounter < enemyMaxCount) 
+            if (enemyCounter < enemyMaxCount)
             {
-            Instantiate(enemyShip, new Vector3(Random.Range(-6, 6), 4f, 0), Quaternion.identity);
+                Instantiate(enemyShip, new Vector3(Random.Range(-6, 6), 4f, 0), Quaternion.identity);
                 enemyCounter++;
 
                 yield return new WaitForSeconds(enemySpawnDelay);

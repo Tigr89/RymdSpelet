@@ -8,9 +8,6 @@ public class UIScript : MonoBehaviour
 
     public static UIScript instance;
 
-    public GameObject enemyShip;
-    private enemyBehaviour enemyBehaviour;
-
     public Text currentScoreText;
     public Text highScoreText;
 
