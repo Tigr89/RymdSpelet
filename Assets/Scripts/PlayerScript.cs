@@ -25,7 +25,7 @@ public class playerScript : MonoBehaviour
         float inputY;
         inputY = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.up * movementSpeed * inputY * 0.4f * Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * inputY * 0.55f * Time.deltaTime);
 
 
         transform.Translate(Vector3.right * movementSpeed * inputX * 1 * Time.deltaTime);
