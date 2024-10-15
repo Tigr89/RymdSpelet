@@ -8,7 +8,7 @@ public class enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(Random.Range(-7, 7), 5.5f, 0);
+        //transform.position = new Vector3(Random.Range(-7, 7), 5.5f, 0);
 
     }
 
