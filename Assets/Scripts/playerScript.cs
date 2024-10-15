@@ -45,13 +45,20 @@ public class playerScript : MonoBehaviour
     }
     public void TakeDamage()
     {
-        playerHP = playerHP - 20;
+        playerHP -= 20;
 
         if (playerHP <= 0)
         {
             Destroy(gameObject);
         }
     }
-     
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "")
+        {
+            TakeDamage();
+        }
+       
+    }
 }
 

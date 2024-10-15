@@ -38,7 +38,9 @@ public class enemyScript : MonoBehaviour
         {
 
             GameObject.Find("enemySpawner").transform.GetComponent<spawnScript>().enemyCounter -= 1;
+            GameObject Score = GameObject.Find("Score Text");
             Debug.Log(GameObject.Find("enemySpawner"));
+            Score.GetComponent<currentScore>().Score += 100;
             Destroy(gameObject);
         }
     }
