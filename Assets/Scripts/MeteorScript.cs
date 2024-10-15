@@ -11,7 +11,7 @@ public class MeteorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Manager = GameObject.Find("Manager").gameObject;
+       // Manager = GameObject.Find("Manager").gameObject;
     }
 
     // Update is called once per frame

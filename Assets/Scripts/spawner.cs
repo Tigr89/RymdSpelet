@@ -14,7 +14,8 @@ public class spawner : MonoBehaviour
     public GameObject Meteor;
     public GameObject speedLine;
     public GameObject Canvas;
-    
+    public GameObject winScreen;
+
 
 
 
@@ -23,6 +24,7 @@ public class spawner : MonoBehaviour
     {
         StartCoroutine(EnemySpawner());
         StartCoroutine(MeteorSpawner());
+        winScreen = GameObject.Find("winScreen");
     }
 
     // Update is called once per frame

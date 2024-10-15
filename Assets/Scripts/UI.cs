@@ -39,21 +39,22 @@ public class UI : MonoBehaviour
         HPValue.text = "HP: " + playerHP.ToString();
 
         //när playerHP är noll eller mindre
-        //höj canvas gameOver's group alpha till 1
+        //canvas blir active
         //OM DET SKA FADE:A  - skriv det i gameOver-objektets egna script
-        // & skriv in text:
+        // & skriver in text:
 
         if (playerHP <= 0)
         {
             gameOver.SetActive(true);
+            //&& FindWithTag("Player") != null
             gameOver.GetComponent<TMP_Text>().text = "YOU DIED :(";
         }
 
 
         //när playerScore är 10 eller mer
+        //canvas blir active
         //sluta spawna enemy och meteor
-        //höj canvas winScreen's group alpha till 1
-        //& skriv in text:
+        //& skriver in text:
         if (playerScore >= 10)
         {
             winScreen.SetActive(true);
