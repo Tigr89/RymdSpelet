@@ -44,8 +44,8 @@ public class enemyScript : MonoBehaviour
         
         if (other.tag == "Player")
         {
-        other.GetComponent<playerScript>().TakeDamage(damage);
-            
+            other.GetComponent<playerScript>().TakeDamage(damage);
+            Destroy(gameObject);
 
         }
 
@@ -58,8 +58,12 @@ public class enemyScript : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             }
-           
+        }
 
+        if (other.tag == "Shield")
+        {
+            other.gameObject.SetActive(false);
+            
         }
     }
     

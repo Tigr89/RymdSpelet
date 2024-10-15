@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class spawner : MonoBehaviour
 {
@@ -19,12 +19,17 @@ public class spawner : MonoBehaviour
     public GameObject winScreen;
     public int playerScore;
 
+    public GameObject Pickup;
+    public int pickupCounter;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(EnemySpawner());
         StartCoroutine(MeteorSpawner());
+        StartCoroutine(PickupSpawner());
         GameObject.Find("winScreen");
 
     }
@@ -40,15 +45,9 @@ public class spawner : MonoBehaviour
     {
         while (true)
         {
-            if (winScreen != null && winScreen.activeInHierarchy)
-            {
-                Debug.Log("Stopping spawns because win screen is active.");
-                yield break;
-            }
-             
 
             if (enemyCounter < 3 && GameObject.FindWithTag("Player") != null)
-                // && winScreen.activeInHierarchy(true)
+                
             {
                 Instantiate(Enemy, new Vector3(Random.Range(-8, 8), 5.5f, 0), Quaternion.identity);
                 enemyCounter++;
@@ -56,10 +55,17 @@ public class spawner : MonoBehaviour
                 yield return new WaitForSeconds(3);
             }
 
+            if (winScreen != null && winScreen.activeInHierarchy)
+            {
+                //Debug.Log("Stopping spawns because win screen is active.");
+                yield break;
+            }
+            yield return null;
         }
+
     }
     
-
+    
     IEnumerator MeteorSpawner()
     {
         while (true)
@@ -72,15 +78,35 @@ public class spawner : MonoBehaviour
                 //Debug.Log(meteorCounter);
                 yield return new WaitForSeconds(5);
             }
-            else
-            {
-                yield return null;
-            }
 
+            if (winScreen != null && winScreen.activeInHierarchy)
+            {
+                Debug.Log("meteor spawn stops because win screen is active");
+                yield break;
+            }
+            yield return null;
         }
 
     }
-    public void EnemyDeathTracker(int enemyValue)
+
+   
+    IEnumerator PickupSpawner()
+    {
+        while (true)
+        {
+            if (pickupCounter < 1 && meteorCounter > 2)
+            {
+                Instantiate(Pickup, new Vector3(Random.Range(-8, 8), Random.Range(-4, 4), 0), Quaternion.identity);
+                pickupCounter++;
+                Debug.Log(pickupCounter);
+                Destroy(gameObject);
+                yield return new WaitForSeconds(2);
+            }
+            yield return null;
+        }
+    }
+
+        public void EnemyDeathTracker(int enemyValue)
     {
         enemyCounter--;
         Canvas.GetComponent<UI>().playerScore += Enemy.GetComponent<enemyScript>().enemyValue;

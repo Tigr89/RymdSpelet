@@ -53,7 +53,7 @@ public class UI : MonoBehaviour
 
         //när playerScore är 10 eller mer
         //canvas blir active
-        ////////////////////////////sluta spawna enemy och meteor
+        //sluta spawna enemy och meteor
         //& skriver in text:
         if (playerScore >= 10)
         {

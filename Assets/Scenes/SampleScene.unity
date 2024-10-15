@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCounter: 0
   meteorCounter: 0
+  Manager: {fileID: 107657966}
   Enemy: {fileID: 3939112659843046300, guid: 755a5027cc3405d4eb0b3a3fe288f3e5, type: 3}
   Player: {fileID: 214261261}
   Meteor: {fileID: 5669801914555685534, guid: cc018fcc717a1974483b5f0f2db20f8f, type: 3}
