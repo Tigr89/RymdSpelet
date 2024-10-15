@@ -21,41 +21,43 @@ public class playerScript : MonoBehaviour
     void Update()
     {
         float inputX;
-        inputX = Input.GetAxis("Horizontal");
+        inputX = Input.GetAxis("Vertical");
         float inputY;
-        inputY = Input.GetAxis("Vertical");
+        inputY = Input.GetAxis("Horizontal");
 
-        transform.Translate(Vector3.up * movementSpeed * inputY * 0.55f * Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * inputY * 0.95f * Time.deltaTime);
 
 
-        transform.Translate(Vector3.right * movementSpeed * inputX * 1 * Time.deltaTime);
+        transform.Translate(Vector3.right * movementSpeed * inputX * -1 * Time.deltaTime);
+
+        Quaternion spaceship_rotation = transform.rotation;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserBullet, this.transform.position + new Vector3(-0.1f, 0.6f, 0), Quaternion.identity);
+            Instantiate(laserBullet, this.transform.position + new Vector3(0.3f, 0, 0), spaceship_rotation);
             
-            Instantiate(laserBullet, this.transform.position + new Vector3(0.1f, 0.6f, 0), Quaternion.identity);
+          
 
 
         }
-        if (transform.position.x > 3)
+        if (transform.position.x > 9)
         {
-            transform.position = new Vector3(0, -3.33f, 0);
+            transform.position = new Vector3(-7, -3, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
-        if (transform.position.x < -3)
+        if (transform.position.x < -9)
         {
-            transform.position = new Vector3(0, -3.33f, 0);
+            transform.position = new Vector3(-7, -3, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
-        if (transform.position.y > 5.1f)
+        if (transform.position.y > 5)
         {
-            transform.position = new Vector3(0, -3.33f, 0);
+            transform.position = new Vector3(-7, -3, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
         if (transform.position.y < -5)
         {
-            transform.position = new Vector3(0, -3.33f, 0);
+            transform.position = new Vector3(-7, -3, 0);
             transform.localScale = new Vector3(0.16f, 0.16f, 0.16f);
         }
         if (Input.GetKeyDown(KeyCode.F))

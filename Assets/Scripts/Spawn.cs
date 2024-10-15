@@ -7,6 +7,9 @@ public class Spawn : MonoBehaviour
     public GameObject olaf;
     private int enemyCounter;
     private GameObject Player;
+
+    Quaternion enemy_rotation = Quaternion.Euler(0, 0, -90);
+
     void Start()
     {
         StartCoroutine(EnemySpawner());
@@ -29,9 +32,10 @@ public class Spawn : MonoBehaviour
             if (enemyCounter < 10 && GameObject.Find("Player") != null)
             {
 
-                Instantiate(olaf, new Vector3(Random.Range(-2.7f, 2.7f), 7, 0), Quaternion.identity);
+                Instantiate(olaf, new Vector3(10, Random.Range(4.55f, -2.6f), 7), enemy_rotation); 
 
-            
+
+
                 enemyCounter++;
              
                 yield return new WaitForSeconds(5);

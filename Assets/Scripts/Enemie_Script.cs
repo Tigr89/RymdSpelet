@@ -18,9 +18,9 @@ public class Enemie_Script : MonoBehaviour
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
 
-        if (transform.position.y <= -5.5f)
+        if (transform.position.x <= -9.5)
         {
-            transform.position = new Vector3(Random.Range(-2.7f, 2.7f), 5.5f, 0);
+            transform.position = new Vector3(10, Random.Range(4.55f, -2.6f), 7);
 
         }
     }
