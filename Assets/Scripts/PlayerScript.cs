@@ -32,7 +32,9 @@ public class playerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserBullet, this.transform.position + new Vector3(0, 0.6f, 0), Quaternion.identity);
+            Instantiate(laserBullet, this.transform.position + new Vector3(-0.1f, 0.6f, 0), Quaternion.identity);
+            
+            Instantiate(laserBullet, this.transform.position + new Vector3(0.1f, 0.6f, 0), Quaternion.identity);
 
 
         }
@@ -64,7 +66,7 @@ public class playerScript : MonoBehaviour
         
             if(transform.localScale.x <= 0.6f)
         {
-            transform.localScale += new Vector3(0.0031f, 0.0031f, 0.0031f);
+            transform.localScale += new Vector3(0.031f, 0.031f, 0.031f);
         }
 
     }

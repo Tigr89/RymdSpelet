@@ -15,7 +15,7 @@ public class laserPewPew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
+        this.transform.Translate(Vector3.right * laserSpeed * Time.deltaTime);
 
         
     }

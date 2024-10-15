@@ -20,7 +20,7 @@ public class Enemie_Script : MonoBehaviour
 
         if (transform.position.y <= -5.5f)
         {
-            transform.position = new Vector3(Random.Range(-8, 8), 5.5f, 0);
+            transform.position = new Vector3(Random.Range(-2.7f, 2.7f), 5.5f, 0);
 
         }
     }
