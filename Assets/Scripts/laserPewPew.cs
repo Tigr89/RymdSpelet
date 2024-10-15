@@ -28,7 +28,7 @@ public class laserPewPew : MonoBehaviour
         }
             else
         {
-             Destroy(other.gameObject);
+            
         }
         
     }

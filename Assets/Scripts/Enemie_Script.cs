@@ -34,8 +34,12 @@ public class Enemie_Script : MonoBehaviour
         // Nedanstående kod ska nog vara en "if sats"?
         if (other.tag == "Bullet")
         {
+            Destroy(other.gameObject);
+            GameObject.Find("SpawnScript").transform.GetComponent<Spawn>().enemyCounter -= 1;
             //Destroy är inte det du skrivit nedan utan det ska vara Destroy(gameObject)
             Destroy(gameObject);
+            //Destroy bullet
+            
 
         }
     }

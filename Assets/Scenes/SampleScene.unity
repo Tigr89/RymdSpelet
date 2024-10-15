@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 582562230}
   - component: {fileID: 582562229}
   m_Layer: 0
-  m_Name: SpawnScript
+  m_Name: SpawnObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   olaf: {fileID: 6108322194736888111, guid: b187b81025265984d85f5520ace43c30, type: 3}
+  MetOlaf: {fileID: 5894220565159051908, guid: 476e253f6711cad4e9fe88ea6625176f, type: 3}
+  enemyCounter: 4
+  MetEnemyCounter: 3
+  Counter: 4
+  MetCounter: 5
+  enemy_rotation2: {x: 0, y: 0, z: 55, w: 0}
 --- !u!4 &582562230
 Transform:
   m_ObjectHideFlags: 0
@@ -438,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 1772644624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7.33, y: -2.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
