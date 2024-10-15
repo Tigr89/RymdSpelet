@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class enemyScript : MonoBehaviour
 {
+    public GameObject tobbe;
     public float movementSpeed;
     public int enemyHP;
     public int enemyValue;
