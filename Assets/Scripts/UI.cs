@@ -40,7 +40,7 @@ public class UI : MonoBehaviour
 
         //när playerHP är noll eller mindre
         //canvas blir active
-        //OM DET SKA FADE:A  - skriv det i gameOver-objektets egna script
+        //////////////////OM DET SKA FADE:A  - skriv det i gameOver-objektets egna script
         // & skriver in text:
 
         if (playerHP <= 0)
@@ -53,7 +53,7 @@ public class UI : MonoBehaviour
 
         //när playerScore är 10 eller mer
         //canvas blir active
-        //sluta spawna enemy och meteor
+        ////////////////////////////sluta spawna enemy och meteor
         //& skriver in text:
         if (playerScore >= 10)
         {

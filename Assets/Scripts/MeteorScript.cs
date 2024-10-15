@@ -7,17 +7,19 @@ public class MeteorScript : MonoBehaviour
     public GameObject Manager;
     public float movementSpeed;
     public int damage;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-       // Manager = GameObject.Find("Manager").gameObject;
+
+        Manager = GameObject.Find("Manager");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Manager = GameObject.Find("Manager");
         //variera rörelsen
         transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
         //transform.Translate(new Vector3(Random.Range(-10, 10), -1, 0) * movementSpeed * Time.deltaTime);

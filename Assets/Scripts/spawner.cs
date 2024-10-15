@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class spawner : MonoBehaviour
 {
 
     public int enemyCounter;
     public int meteorCounter;
+    public GameObject Manager;
     public GameObject Enemy;
     public GameObject Player;
     public GameObject Meteor;
     public GameObject speedLine;
     public GameObject Canvas;
     public GameObject winScreen;
-
-
+    public int playerScore;
 
 
     // Start is called before the first frame update
@@ -24,7 +25,8 @@ public class spawner : MonoBehaviour
     {
         StartCoroutine(EnemySpawner());
         StartCoroutine(MeteorSpawner());
-        winScreen = GameObject.Find("winScreen");
+        GameObject.Find("winScreen");
+
     }
 
     // Update is called once per frame
@@ -38,18 +40,22 @@ public class spawner : MonoBehaviour
     {
         while (true)
         {
-            //if (GameObject.FindWithTag("Player") != null)
+            if (winScreen != null && winScreen.activeInHierarchy)
+            {
+                Debug.Log("Stopping spawns because win screen is active.");
+                yield break;
+            }
+             
+
             if (enemyCounter < 3 && GameObject.FindWithTag("Player") != null)
+                // && winScreen.activeInHierarchy(true)
             {
                 Instantiate(Enemy, new Vector3(Random.Range(-8, 8), 5.5f, 0), Quaternion.identity);
                 enemyCounter++;
                 //Debug.Log(enemyCounter);
                 yield return new WaitForSeconds(3);
             }
-            else
-            {
-                yield return null;
-            }
+
         }
     }
     
