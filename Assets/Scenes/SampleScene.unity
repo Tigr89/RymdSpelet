@@ -187,6 +187,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: respawnDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: playerMaxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: invulnerableTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: playerExtraLives
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -528,9 +544,6 @@ MonoBehaviour:
   highScoreText: {fileID: 2096097060}
   healthSprite: []
   healthImage: []
-  playerHealth: 0
-  playerMaxHealth: 3
-  playerExtraLives: 3
 --- !u!1 &1237978894
 GameObject:
   m_ObjectHideFlags: 0

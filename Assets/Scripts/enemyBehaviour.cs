@@ -42,10 +42,10 @@ public class enemyBehaviour : MonoBehaviour
         // Check if the object collides with the player.
         if (other.CompareTag("Player"))
         {
-            UIScript UIScript = other.GetComponent<UIScript>();
-            if (UIScript != null)
+            playerScript playerScript = other.GetComponent<playerScript>();
+            if (playerScript != null)
             {
-                UIScript.takeDamage(enemyDamage);
+                playerScript.takeDamage(enemyDamage);
             }
 
             Spawner.GetComponent<enemySpawnScript>().enemyCounter--;
