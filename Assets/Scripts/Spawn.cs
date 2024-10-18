@@ -11,16 +11,18 @@ public class Spawn : MonoBehaviour
     private GameObject Player;
     public float Counter;
     public float MetCounter;
+    public GameObject treeSpawner;
 
-    Quaternion enemy_rotation = Quaternion.Euler(0, 0, -90.6f);
+    Quaternion enemy_rotation = Quaternion.Euler(0, 0, -90);
     Quaternion enemy_rotation2 = Quaternion.Euler(0, 0, -40);
 
 
     void Start()
     {
+        StartCoroutine(TreeSpawner());
         StartCoroutine(EnemySpawner());
         StartCoroutine(MetSpawner());
-        enemy_rotation = Quaternion.Euler(0, 0, Random.Range(-99, -76));
+        enemy_rotation = Quaternion.Euler(0, 0, Random.Range(-95, -86));
         enemy_rotation2 = Quaternion.Euler(0, 0, Random.Range(-70, -50));
     }
 
@@ -75,6 +77,14 @@ public class Spawn : MonoBehaviour
             else yield return null;
 
 
+        }
+    }
+    IEnumerator TreeSpawner()
+    {
+        while (true)
+        {
+            Instantiate(treeSpawner, new Vector3(11, Random.Range(-5f, -6f), 7), transform.rotation);
+            yield return new WaitForSeconds(Random.Range(0.4f, 3.3f));
         }
     }
 }

@@ -75,6 +75,7 @@ public class playerScript : MonoBehaviour
     public void TakeDamage()
     {
         playerHealth--;
+       
         Debug.Log("Player Health: " + playerHealth);
 
         if (playerHealth < 0)
