@@ -177,6 +177,8 @@ MonoBehaviour:
   Canvas: {fileID: 624451402}
   winScreen: {fileID: 1570789129}
   playerScore: 0
+  Pickup: {fileID: 4206006116795468632, guid: c155a80ca690d7f4898128177f696aae, type: 3}
+  pickupCounter: 0
 --- !u!1 &214261261
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   playerHP: 5
   laserBullet: {fileID: 4379284661790789796, guid: e257a0844453b6f428898dce43dfbf45, type: 3}
   Canvas: {fileID: 624451402}
+  Shield: {fileID: 0}
 --- !u!212 &214261263
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -274,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 214261261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.38, y: -9.04, z: 0}
+  m_LocalPosition: {x: 0.01, y: -3.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -766,7 +769,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1236,8 +1239,8 @@ Transform:
   m_GameObject: {fileID: 1237978894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 7, z: 1}
+  m_LocalPosition: {x: 0.03, y: -0.33, z: 0}
+  m_LocalScale: {x: 7.158998, y: 4.9467916, z: 0.7066846}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1311,7 +1314,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -30,7 +30,16 @@ public class playerScript : MonoBehaviour
 
         transform.Translate(Vector3.right * movementSpeed * inputX * Time.deltaTime);
         transform.Translate(Vector3.up * movementSpeed * inputY * Time.deltaTime);
-        
+
+        if (transform.position.y < -4.6)
+        {
+            transform.position = new Vector3(transform.position.x, -4.6f, transform.position.z);
+        }
+
+        if (transform.position.y > 4.6)
+        {
+            transform.position = new Vector3(transform.position.x, 4.6f, transform.position.z);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
