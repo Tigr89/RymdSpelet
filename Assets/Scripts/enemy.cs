@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-public class Bullet : MonoBehaviour
+
+public class enemy : MonoBehaviour
 {
-    public float bulletSpeed = 1.0f; 
+    public float movementSpeed = 1;
+    Vector2 randomPosition;
+    public float yRange = 5f;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5);
+        transform.position = new Vector3(0, 5, 0);
+        transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * bulletSpeed * Time.deltaTime);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        { 
+            return;
+        }
+        
+        
+
+
     }
+
 }

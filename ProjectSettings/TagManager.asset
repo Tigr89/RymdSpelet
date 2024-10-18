@@ -41,6 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Midra
+  - name: player
     uniqueID: 2638682161
     locked: 0

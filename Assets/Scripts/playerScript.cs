@@ -4,15 +4,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class YuhScript : MonoBehaviour
+public class playerScript : MonoBehaviour
 {
     public float movementSpeed = 5;
     public bool canShoot;
-    public int yuhHealth;
+    public int playerHealth;
+    public GameObject projectile;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, -3, 0);
+        transform.position = new Vector3(0, -5, 0);
 
 
         
@@ -37,8 +38,8 @@ public class YuhScript : MonoBehaviour
         {
             transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Space))
-            Instantiate
+        if (Input.GetKey(KeyCode.Space)) {
+            Instantiate(projectile, this.transform.position, this.transform.rotation);
 
 
 
@@ -46,4 +47,4 @@ public class YuhScript : MonoBehaviour
 
 
 
-    }    }
+    }    }    }
