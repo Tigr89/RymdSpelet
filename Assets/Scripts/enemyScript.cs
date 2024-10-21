@@ -13,6 +13,7 @@ public class enemyScript : MonoBehaviour
     public int damage;
     public GameObject Manager;
     public GameObject Player;
+    public GameObject winScreen;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class enemyScript : MonoBehaviour
 
         Manager = GameObject.Find("Manager").gameObject;
         Player = GameObject.Find("Player").gameObject;
+
 
         //transform.position = new Vector3(0, 8, 0);
 
@@ -37,6 +39,12 @@ public class enemyScript : MonoBehaviour
         {
         transform.position = new Vector3(Random.Range(-8, 8), 5.5f, 0);
         }
+
+        if (winScreen != null && winScreen.activeInHierarchy)
+        {
+            Destroy(gameObject);
+            Debug.Log("enemydör");
+        }
     }
 
     //If two items collide this code will run.
@@ -45,6 +53,7 @@ public class enemyScript : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<playerScript>().TakeDamage(damage);
+            Manager.GetComponent<spawner>().EnemyDeathTracker(0);
             Destroy(gameObject);
 
         }
@@ -55,8 +64,9 @@ public class enemyScript : MonoBehaviour
             if (enemyHP <= 0)
             {
             Manager.GetComponent<spawner>().EnemyDeathTracker(enemyValue);
-            Destroy(gameObject);
-            Destroy(other.gameObject);
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            
             }
         }
 

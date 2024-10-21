@@ -99,7 +99,7 @@ public class spawner : MonoBehaviour
                 Instantiate(Pickup, new Vector3(Random.Range(-8, 8), Random.Range(-4, 4), 0), Quaternion.identity);
                 pickupCounter++;
                 Debug.Log(pickupCounter);
-                Destroy(gameObject);
+                //
                 yield return new WaitForSeconds(2);
             }
             yield return null;
