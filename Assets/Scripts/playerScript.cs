@@ -14,6 +14,8 @@ public class playerScript : MonoBehaviour
     [SerializeField] private bool allowShooting = true;
 
     // Player Health
+    public int playerHP;
+    public int playerMaxHP = 2;
     public int playerHealth;
     public int playerMaxHealth;
     public int playerExtraLives;
@@ -22,13 +24,21 @@ public class playerScript : MonoBehaviour
     [SerializeField] private float respawnDelay;
     [SerializeField] private float invulnerableTime;
 
+    public Sprite defaultSprite; 
+    public Sprite damagedSprite;
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         // Teleports player to start position
         transform.position = new Vector3(0, -3, 0);
 
         // Sets the player's health to max health
+        playerHP = playerMaxHP;
         playerHealth = playerMaxHealth;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = defaultSprite;
     }
 
     private void Update()
@@ -68,7 +78,24 @@ public class playerScript : MonoBehaviour
     // Let's the player lose health
     public void takeDamage(int damage)
     {
+            playerHP -= damage;
+
+        if (playerHP == 1)
+        {
+            spriteRenderer.sprite = damagedSprite; // Change to the damaged sprite
+        }
+        else
+        {
+            spriteRenderer.sprite = defaultSprite; // Change back to the normal sprite
+        }
+
+        if (playerHP <= 0) 
+        {
             playerHealth -= damage;
+            // Start the respawn process
+            StartCoroutine(Respawn());
+            playerHP = playerMaxHP;
+        }
 
         // Check for player health
         if (playerHealth <= 0)
@@ -83,16 +110,11 @@ public class playerScript : MonoBehaviour
                 // Reset level from the start
             }
         }
-        else
-        {
-            // Start the respawn process
-            StartCoroutine(Respawn());
-        }
     }
 
     private IEnumerator Respawn()
     {
-        // Disable player control
+        // Disable player control, hitbox, and sprite
         allowPlayerControl = false;
         allowShooting = false;
         GetComponent<Renderer>().enabled = false;
@@ -101,21 +123,21 @@ public class playerScript : MonoBehaviour
         // Wait for 2 seconds
         yield return new WaitForSeconds(2f);
 
-        // Move player to the bottom of the screen
-        Vector3 startPosition = new Vector3(0, -5, 0); // Change as needed
+        // Teleport player to the bottom of the screen and reenables the sprite
+        Vector3 startPosition = new Vector3(0, -5, 0);
         transform.position = startPosition;
         GetComponent<Renderer>().enabled = true;
 
 
-        // Move player upwards over 1 second
+        // Move player upwards to the start position
         float elapsedTime = 0f;
-        Vector3 targetPosition = new Vector3(0, -3, 0); // Adjust to desired final position
+        Vector3 targetPosition = new Vector3(0, -3, 0); 
 
         while (elapsedTime < 1f)
         {
             transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime);
             elapsedTime += Time.deltaTime;
-            // Enable player control and set player as visible
+            // Enable player control
             allowPlayerControl = true;
             yield return null;
         }
@@ -123,6 +145,7 @@ public class playerScript : MonoBehaviour
         // Ensure final position is set
         transform.position = targetPosition;
 
+        // Reenable hitbox and ability to shoot after a few seconds
         yield return new WaitForSeconds(invulnerableTime);
         allowShooting = true;
         GetComponent<BoxCollider2D>().enabled = true;

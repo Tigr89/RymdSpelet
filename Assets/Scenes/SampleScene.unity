@@ -183,17 +183,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938969971416815465, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938969971416815465, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7354367350527822956, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: playerMaxHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: gameOverText
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: respawnDelay
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: damagedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9016ed4fd36ce0d438226bde3cc21dee, type: 3}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
+      propertyPath: defaultSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73662cc324ab1184784c6a67347f2c58, type: 3}
+    - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: playerMaxHealth
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8166459216262489544, guid: e3ec2a9fff7174d43b1d80eafd4a5b09, type: 3}
       propertyPath: invulnerableTime
@@ -501,7 +525,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
