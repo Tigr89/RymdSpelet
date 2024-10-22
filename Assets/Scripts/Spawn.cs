@@ -24,6 +24,7 @@ public class Spawn : MonoBehaviour
         StartCoroutine(MetSpawner());
         enemy_rotation = Quaternion.Euler(0, 0, Random.Range(-95, -86));
         enemy_rotation2 = Quaternion.Euler(0, 0, Random.Range(-70, -50));
+        //StartCoroutine(SpawnTrees());
     }
 
 
@@ -83,8 +84,9 @@ public class Spawn : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(treeSpawner, new Vector3(11, Random.Range(-5f, -6f), 7), transform.rotation);
-            yield return new WaitForSeconds(Random.Range(0.4f, 3.3f));
+            Instantiate(treeSpawner, new Vector3(11, Random.Range(-5.08f, -5.1f), 7), transform.rotation);
+            yield return new WaitForSeconds(Random.Range(0.02f, 0.7f));
+
         }
     }
 }

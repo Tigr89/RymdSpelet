@@ -28,9 +28,9 @@ Transform:
   m_GameObject: {fileID: 7382129913986124608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.9, y: -3.55, z: -0.04155763}
-  m_LocalScale: {x: 0.71, y: 3.71, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,10 +75,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: afa12d48552c9de40a8029aa72b509cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bec15ab9eb0c3784c876b1332a64ed0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.93, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
@@ -98,8 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5e3c65d744954b9038edb128e308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treespeed1: 12
-  treespeed2: 12.2
+  treespeed1: 15
+  treespeed2: 15.2
+  sprite1: {fileID: 21300000, guid: bec15ab9eb0c3784c876b1332a64ed0f, type: 3}
+  sprite2: {fileID: 21300000, guid: 6b579f2caef057a44b72f4daace574ca, type: 3}
+  sten1: {fileID: 21300000, guid: ae2ef36effb8875448a774c7eeddef2a, type: 3}
+  sten2: {fileID: 21300000, guid: b4b1bff7574136f48b9840e101d2b8cf, type: 3}
+  sten3: {fileID: 21300000, guid: 43ffda342f9e271438cba712505cc892, type: 3}
+  "tr\xE4d3": {fileID: 21300000, guid: 587278e59283f364b802823769026cc5, type: 3}
 --- !u!61 &1685977329946316987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,8 +141,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2.85, y: 7.78}
     newSize: {x: 0.93, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

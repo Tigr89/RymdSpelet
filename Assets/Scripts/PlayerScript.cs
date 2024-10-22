@@ -7,6 +7,7 @@ public class playerScript : MonoBehaviour
     public float movementSpeed;
     public int playerHealth;
     public GameObject laserBullet;
+    public GameObject shell;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,16 +26,18 @@ public class playerScript : MonoBehaviour
         float inputY;
         inputY = Input.GetAxis("Horizontal");
 
-        transform.Translate(Vector3.up * movementSpeed * inputY * 0.95f * Time.deltaTime);
+        transform.Translate(Vector3.right * movementSpeed * inputY * 0.95f * Time.deltaTime);
 
 
-        transform.Translate(Vector3.right * movementSpeed * inputX * -1 * Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * inputX * 1 * Time.deltaTime);
 
         Quaternion spaceship_rotation = transform.rotation;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(laserBullet, this.transform.position + new Vector3(0.3f, 0, 0), spaceship_rotation);
+            Instantiate(laserBullet, this.transform.position + new Vector3(0.9636f, -0.158f, 0), spaceship_rotation);
+
+            Instantiate(shell, this.transform.position + new Vector3(0.9636f, -0.1f, 0), spaceship_rotation);
             
           
 
@@ -76,7 +79,7 @@ public class playerScript : MonoBehaviour
     {
         playerHealth--;
        
-        Debug.Log("Player Health: " + playerHealth);
+       // Debug.Log("Player Health: " + playerHealth);
 
         if (playerHealth < 0)
             Destroy(gameObject);

@@ -9,13 +9,13 @@ public class laserPewPew : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject, 0.9f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
+        this.transform.Translate(Vector3.right * laserSpeed * Time.deltaTime);
 
         
     }
@@ -24,7 +24,7 @@ public class laserPewPew : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Collided with " + other.tag);
+            //Debug.Log("Collided with " + other.tag);
         }
             else
         {
