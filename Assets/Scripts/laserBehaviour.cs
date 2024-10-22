@@ -67,7 +67,7 @@ public class laserBehaviour : MonoBehaviour
             {
                 isExpanding = false;
                 transform.localScale = transform.localScale + new Vector3(0.1f, 0.1f, 0);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.005f);
                 Debug.Log("Is Expanding");
                 
                 
@@ -79,7 +79,7 @@ public class laserBehaviour : MonoBehaviour
             while(transform.localScale.x >= 0.1f)
             {
                 transform.localScale = transform.localScale - new Vector3(0.1f, 0.1f, 0);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.005f);
                 Debug.Log("Is Shrinking");
 
                 //Shrink

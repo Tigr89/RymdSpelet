@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerScript : MonoBehaviour
@@ -46,20 +47,9 @@ public class playerScript : MonoBehaviour
         transform.Translate(new Vector3(1, 0, 0) * movementSpeed * inputX * Time.deltaTime);
 
         //När spelaren klickar på space, då ska en laser spawnas.
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKey(KeyCode.Space))
         {
-            /*Instantiate(laserPrefab, playerDupe[0].transform.position + new Vector3(0.44f, 0.36f, 0), Quaternion.identity);
-            Instantiate(laserPrefab, playerDupe[0].transform.position + new Vector3(-0.44f, 0.36f, 0), Quaternion.identity);
-
-            Instantiate(laserPrefab, playerDupe[1].transform.position + new Vector3(0.44f, 0.36f, 0), Quaternion.identity);
-            Instantiate(laserPrefab, playerDupe[1].transform.position + new Vector3(-0.44f, 0.36f, 0), Quaternion.identity);*/
-
-            for(int i = 0; i < playerDupe.Length; i++)
-            {
-                Instantiate(laserPrefab, playerDupe[i].transform.position + new Vector3(0.44f, 0.36f, 0), Quaternion.identity);
-                Instantiate(laserPrefab, playerDupe[i].transform.position + new Vector3(-0.44f, 0.36f, 0), Quaternion.identity);
-            }
-
+            PlayerFire();
         }
 
         if (playerDupe[0].transform.position.x < 0)
@@ -75,6 +65,18 @@ public class playerScript : MonoBehaviour
         if (playerDupe[0].transform.position.x > 18 || playerDupe[0].transform.position.x < -18)
         {
             playerDupe[0].transform.position = playerDupe[1].transform.position;
+        }
+    }
+
+    private void PlayerFire()
+    {
+        //if(//STuff)
+        {
+            Instantiate(laserPrefab, playerDupe[0].transform.position + new Vector3(0.44f, 0.36f, 0), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(laserPrefab, playerDupe[1].transform.position + new Vector3(-0.44f, 0.36f, 0), Quaternion.identity);
         }
     }
 }
