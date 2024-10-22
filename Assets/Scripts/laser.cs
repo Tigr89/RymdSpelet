@@ -6,6 +6,7 @@ using UnityEngine;
 public class laser : MonoBehaviour
 {
     public float laserSpeed = 10f;
+    public bool enemyLaser;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,19 @@ public class laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
+       
 
+        if (enemyLaser == false)
+        {
+            transform.Translate(Vector3.up * laserSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+
+            transform.Translate(Vector3.down * laserSpeed * Time.deltaTime);
+
+        }
     }
    
     private void OnTriggerEnter2D(Collider2D other)
