@@ -567,6 +567,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2176356912291644325, guid: fc7b804989d71564096880879c803c24, type: 3}
+      propertyPath: enemyLaser
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7381254513488004802, guid: fc7b804989d71564096880879c803c24, type: 3}
       propertyPath: m_Name
       value: EnemyBullet
@@ -584,6 +588,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 754039045834767397, guid: 25eed699899bc9f4cbe39977f6cf7a0e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754039045834767397, guid: 25eed699899bc9f4cbe39977f6cf7a0e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -391968071
+      objectReference: {fileID: 0}
     - target: {fileID: 6613849777652446012, guid: 25eed699899bc9f4cbe39977f6cf7a0e, type: 3}
       propertyPath: m_Name
       value: enemy
@@ -685,13 +697,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5087369714707454241, guid: cb923a1707551d94391e4e49e664b9af, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6429017835842046031, guid: cb923a1707551d94391e4e49e664b9af, type: 3}
       propertyPath: m_Name
-      value: enemy2
+      value: enemy1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -29,24 +29,25 @@ public class laser : MonoBehaviour
 
             transform.Translate(Vector3.down * laserSpeed * Time.deltaTime);
 
+
         }
     }
    
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "enemy")
+        if (other.tag == "enemy" && enemyLaser == false)
         {
 
             Destroy(other.gameObject);
         }
 
-        if (other.name != "Player")
+        if (other.name == "Player" && enemyLaser == true)
         {
-            Destroy(gameObject);
+            Destroy(other.gameObject);
 
         }
-
+            
        
 
     }

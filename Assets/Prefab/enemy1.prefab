@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3861898178596314797}
   - component: {fileID: 3908693211345932017}
   m_Layer: 0
-  m_Name: enemy2
-  m_TagString: Untagged
+  m_Name: enemy1
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a4ac40c24f6ba4d9340ddbc327fccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
+  laserBlue: {fileID: 7381254513488004802, guid: fc7b804989d71564096880879c803c24, type: 3}
 --- !u!212 &5956061571082258474
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,8 +87,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -391968071
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0b62851f18b7b3348962151606f8b626, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
