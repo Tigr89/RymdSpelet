@@ -1,33 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class enemy : MonoBehaviour
+
 {
+
     public float movementSpeed = 1;
-    Vector2 randomPosition;
-    public float yRange = 5f;
+    public bool PositionY;
+    public float EnemyHealth = 1;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 5, 0);
-        transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
+        transform.position = new Vector2(0, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(Vector3.down * movementSpeed * Time.deltaTime);
+        if (PositionY == true);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        { 
-            return;
-        }
-        
-        
-
-
+        if (EnemyHealth == 0)transform.position = Random.range;
     }
+
 
 }
