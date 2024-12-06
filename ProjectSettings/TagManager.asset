@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Laser
+  - Enemy
+  - SpawnMaster
+  - astroid
+  - Player2
   layers:
   - Default
   - TransparentFX
