@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour
     private float lastTimeUsed;
     public float projectileDamage = 25;
     public GameObject enemyObject;
+    public float TakeDamage = 5;
 
     // Start is called before the first frame update
     void Start()
