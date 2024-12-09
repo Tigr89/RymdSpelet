@@ -6,12 +6,14 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     public float playerSpeed = 1.0f;
+    public int playerHealth = 100;
     public GameObject projectile;
     public float cooldownTime = 0.5f;
     private float lastTimeUsed;
-    public float projectileDamage = 25;
+    public int projectileDamage = 25;
     public GameObject enemyObject;
-    public float TakeDamage = 5;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +45,34 @@ public class playerMovement : MonoBehaviour
             lastTimeUsed = Time.time;
             Instantiate(projectile, this.transform.position, this.transform.rotation);
         }
-        if (transform.position.x < -6.5f)
+        if (transform.position.x < -8.65f)
         {
             transform.position = new Vector3(8.65f, transform.position.y, 0);    
         }
         if (transform.position.x > 8.65f)
         {
-            transform.position = new Vector3(-6.5f, transform.position.y, 0);
+            transform.position = new Vector3(-8.65f, transform.position.y, 0);
         }
     }
+    public void TakeDamage(int dmgRecive)
+    {
+        playerHealth = playerHealth - dmgRecive;
+        if (playerHealth < 0)
+        {
+            Destroy(gameObject);
+
+        }
+
+    }
+    /*public void DoDamage(GameObject enemy, int dmgDealth)
+           {
+        enemy.GetComponent<enemyScript>().enemyHealth = enemy.GetComponent<enemyScript>().enemyHealth - projectileDamage);
+                if (enemyHealth< 0)
+                {
+                    Destroy(gameObject);
+
+                }
+            }*/
+
 
 }

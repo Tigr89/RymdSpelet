@@ -6,33 +6,45 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
 
-    public float enemyHealth = 100f;
- 
+    public int enemyHealth = 100;
+    public int enemyDamage = 50;
+    public int enemySpeed = 5;
+    public bool respawn = false;
+    int dmgDealt;
+
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -2.80f)
+        transform.Translate(Vector3.down * enemySpeed * Time.deltaTime);
+        if (transform.position.y < -2.80f && respawn == true)
         {
             transform.position = new Vector3(Random.Range(-8, 8), 5.5f, 0);
         }
-      void OnTriggerEnter2D(Collider2D other)
+        if (transform.position.y < -5f)
+        {
+            Destroy(gameObject);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.tag == "Player") ;
-            {
-                other.transform.GetComponent<playerMovement>().TakeDamage(5);
-            }
-
-            if (other.tag == "Laser")
-            {
-                Destroy(gameObject);
-            }
+        if (other.tag == "Player")
+        {
+            other.transform.GetComponent<playerMovement>().TakeDamage(enemyDamage);
         }
 
+        if (other.tag == "Lazer")
+        {
+            other.transform.GetComponent<bullet1>().DoDamage(enemyHealth);
+            enemyHealth -= other.transform.GetComponent<bullet1>().bulletDmg;
+        }
+    }
+ 
 }
-}
+
