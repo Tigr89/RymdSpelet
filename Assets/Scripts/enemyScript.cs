@@ -41,8 +41,17 @@ public class enemyScript : MonoBehaviour
 
         if (other.tag == "Lazer")
         {
+            DoDamage(other.transform.GetComponent<bullet1>().bulletDmg);
             other.transform.GetComponent<bullet1>().DoDamage(enemyHealth);
-            enemyHealth -= other.transform.GetComponent<bullet1>().bulletDmg;
+           
+        }
+    }
+    public void DoDamage(int dmgDealth)
+    {
+        enemyHealth -= dmgDealth;
+        if (enemyHealth < 0)
+            {
+            Destroy(gameObject);
         }
     }
  

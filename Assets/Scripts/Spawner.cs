@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(enemySpawner());
     }
 
     // Update is called once per frame
@@ -28,8 +28,9 @@ public class Spawner : MonoBehaviour
 
         while (true)
         {
-            if (enemyCount > 5 && GameObject.Find("Player") != null)
+            if (enemyCount < 5 && GameObject.Find("player") != null)
             {
+              
                 Instantiate (enemyShip , new Vector3 (Random.Range(-8, 8), 7, 0), Quaternion.identity);
                 enemyCount++;
                 yield return new WaitForSeconds(5); //How long the loop should wait before it runs aigan

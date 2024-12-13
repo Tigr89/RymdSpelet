@@ -27,12 +27,7 @@ public class bullet1 : MonoBehaviour
     }
     public void DoDamage(int dmgDealth)
     {
-        Debug.Log("HEJ!");
-        /*enemy.GetComponent<enemyScript>().enemyHealth = enemy.GetComponent<enemyScript>().enemyHealth - projectileDamage);
-        if (enemyHealth < 0)
-        {
-            Destroy(gameObject);
-
-        }*/
+    
+     
     }
 }
