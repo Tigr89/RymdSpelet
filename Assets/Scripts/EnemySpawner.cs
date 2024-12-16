@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnTimer() // Var fjärde sekund ska en fiende spawn in
     {
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Instantiate(enemy);
         yield return null;
         StartCoroutine(SpawnTimer());
